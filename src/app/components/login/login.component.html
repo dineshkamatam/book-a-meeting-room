@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="image">
+        <h1>BOOK A MEETING ROOM</h1>
+        <img src="assets/images/undraw_meeting_re_i53h.svg" alt="">
+    </div>
+    <div class="login">
+        <div class="login-card">
+            <mat-form-field>
+              <mat-label>User Name</mat-label>
+              <input matInput [(ngModel)]="username" type="text">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput [(ngModel)]="password" type="password">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="login()">Login</button>
+        </div>
+          
+    </div>
+</div>
