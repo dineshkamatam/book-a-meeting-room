@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder,FormGroup } from '@angular/forms';
+import { MeetingService } from '../../services/meeting.service';
 
 @Component({
   selector: 'app-book-meeting',
@@ -18,12 +19,14 @@ export class BookMeetingComponent implements OnInit{
 
   meetingForm!: FormGroup; 
 
-  rooms = ['Room 1', 'Room 2', 'Room 3', 'Room 4', 'Room 5', 'Room 6', 'Room 7', 'Room 8', 'Room 9', 'Room 10'];
+  serchRoomEnable: boolean = true;
+  rooms = ['Room #1', 'Room #2', 'Room #3', 'Room #4', 'Room #5', 'Room #6', 'Room #7', 'Room #8', 'Room #9', 'Room #10'];
 
   constructor(
     public dialogRef: MatDialogRef<BookMeetingComponent>,
     private authService: AuthService,
     private fb: FormBuilder,
+    private meetingService:MeetingService
   ) {
 
   }
@@ -34,12 +37,25 @@ export class BookMeetingComponent implements OnInit{
 
   initializeForm() {
      this.meetingForm = this.fb.group({
-      
+      username:[this.username ],
+      date:[],
+      startTime:[],
+      endTime:[],
+      room:[],
+      agenda:[]
     });
   }
 
+  searchRooms(){
+    const filterRooms =  this.meetingService.searchAvailableRooms(this.meetingForm.value)
+    if(filterRooms){
+      this.serchRoomEnable = false;
+      this.rooms = this.rooms.filter(val => val !== filterRooms[0].room)
+    }
+  }
+
   save(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.meetingForm.value);
   }
 
   cancel(): void {

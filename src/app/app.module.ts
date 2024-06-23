@@ -12,6 +12,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BookMeetingComponent } from './components/book-meeting/book-meeting.component';
-
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { BookMeetingComponent } from './components/book-meeting/book-meeting.com
     MatCardModule,
     MatTableModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxMaterialTimepickerModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync(),

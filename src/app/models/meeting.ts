@@ -1,7 +1,7 @@
 export interface Meeting {
-    id: number;
+    id:number;
     username: string;
-    meetingRoom: string;
+    room: string;
     date: string;
     startTime: string;
     endTime: string;
