@@ -14,7 +14,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 ->for github pages run thhis command
-ng build --output-path ghp-deploy --base-href /book-a-meeting-room/
+ ng b --base-href /book-a-meeting-room/
 
 ## Running unit tests
 

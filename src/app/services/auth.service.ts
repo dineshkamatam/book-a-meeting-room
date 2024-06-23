@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, map, of } from 'rxjs';
-import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/users';
+  private loggedInUser: string | null = null;
 
-  constructor(private http: HttpClient) {}
-
-  login(username: string, password: string): Observable<boolean> {
-    return this.http.get<User[]>(`${this.apiUrl}?username=${username}&password=${password}`).pipe(
-      map(users => users.length > 0)
-    );
+  login(username: string, password: string): boolean {
+    if (password === 'password123') {
+      this.loggedInUser = username;
+      return true;
+    }
+    return false;
   }
 
-  register(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user);
+  logout(): void {
+    this.loggedInUser = null;
+  }
+
+  getUsername(): string | null {
+    return this.loggedInUser;
   }
 }

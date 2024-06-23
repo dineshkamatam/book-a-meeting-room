@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="header">
+    <h2>Book Meeting</h2>
+    <button mat-button (click)="cancel()">X</button>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="meetingForm">
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>User Name</mat-label>
+        <input matInput [(ngModel)]="username" />
+      </mat-form-field>
+    </div>
+    <div class="date-container">
+      <mat-form-field>
+        <mat-label>Meeting Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          [matDatepickerFilter]="myFilter"
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a time</mat-label>
+        <input matInput type="time" placeholder="Select time" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a time</mat-label>
+        <input matInput type="time" placeholder="Select time" />
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button color="primary">Search Rooms</button>
+    </div>
+    <div>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Room</mat-label>
+        <mat-select  name="room" >
+          <mat-option *ngFor="let room of rooms" [value]="room">{{
+            room
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Agenda</mat-label>
+            <textarea matInput  name="agenda" > </textarea>
+          </mat-form-field>
+    </div>
+    <div>
+        <button mat-raised-button color="primary">Book Meeting</button>
+    </div>
+    <!-- <mat-form-field>
+    <mat-label>Room</mat-label>
+    <mat-select [(ngModel)]="meeting.room" name="room" required>
+      <mat-option *ngFor="let room of rooms" [value]="room">{{ room }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput [(ngModel)]="meeting.date" name="date" type="date" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>From Time</mat-label>
+    <input matInput [(ngModel)]="meeting.fromTime" name="fromTime" type="time" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>To Time</mat-label>
+    <input matInput [(ngModel)]="meeting.toTime" name="toTime" type="time" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Agenda</mat-label>
+    <input matInput [(ngModel)]="meeting.agenda" name="agenda" required>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+  <button mat-button (click)="cancel()">Cancel</button> -->
+    </form>
+  </div>
+</div>

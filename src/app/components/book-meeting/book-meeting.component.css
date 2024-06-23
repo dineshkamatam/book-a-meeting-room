@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 800px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.date-container{
+    display: flex;
+    justify-content: space-between;
+}

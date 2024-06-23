@@ -13,13 +13,11 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  login() {
-    this.authService.login(this.username, this.password).subscribe(success => {
-      if (success) {
-        this.router.navigate(['/dashboard']);
-      } else {
-        alert('Login failed');
-      }
-    });
+  login(): void {
+    if (this.authService.login(this.username, this.password)) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      alert('Login failed. Incorrect password.');
+    }
   }
 }

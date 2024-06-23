@@ -6,3 +6,17 @@
     width: 80%;
     margin: 10px auto;
 }
+
+.yum-container{
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.rmd-container{
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
